@@ -1,7 +1,8 @@
-function showVisibility(idElement, lastElement){
-    idElement.classList.toggle("hide");
-    lastElement.classList.toggle("hide");
+
+function showVisibility(current, next){
+    current.classList.toggle("hide");
+    next.classList.toggle("hide");
     console.log("presionado");
 }
 
-export default {showVisibility};
+export { showVisibility };
