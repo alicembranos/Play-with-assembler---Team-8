@@ -1,12 +1,12 @@
 @import url(./normalize.css);
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
-:root{     
-        /* --max-width: 800px; */
-        --primary-color: #7a7a7a;
-        --secondary-color: #c3c3c3;
-        --light-color: #f4f4f4;
-
+:root {
+  /* --max-width: 800px; */
+  --primary-color: #7a7a7a;
+  --secondary-color: #c3c3c3;
+  --light-color: #f4f4f4;
+}
 * {
   padding: 0;
   box-sizing: border-box;
