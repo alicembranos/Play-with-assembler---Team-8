@@ -41,5 +41,15 @@ main {
 }
 
 .wireframe {
+  display: block;
   border: 1px solid black;
+}
+
+
+.show{
+  display:block;
+}
+
+.hide{
+  display: none;
 }

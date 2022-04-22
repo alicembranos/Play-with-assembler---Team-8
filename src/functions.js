@@ -1,12 +1,7 @@
-function hideVisibility(idElement){
-    $(idElement).hide();
-    console.log("hide");
-}
-
 function showVisibility(idElement, lastElement){
-    $(idElement).show();
-    document.getElementById("");
-    hideVisibility(lastElement);
+    idElement.classList.toggle("hide");
+    lastElement.classList.toggle("hide");
+    console.log("presionado");
 }
 
-export {hideVisibility, showVisibility};
+export default {showVisibility};
