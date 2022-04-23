@@ -39,14 +39,13 @@ function movingElement() {
     let clientWidth = boardGame.clientWidth;
     let elementWidth = clickElement.clientWidth;
     let clientHeight = boardGame.clientHeight;
-    let elementHeight = clickElement.clientWidth;
+    let elementHeight = clickElement.clientHeight;
 
     //Limit to avoid going off screen
-    let limitsX = clientWidth - elementWidth;
-    let limitsY = clientHeight - elementHeight;
-
-    let randY = Math.floor((Math.random() * limitsY) + 1);
-    let randX = Math.floor((Math.random() * limitsX) + 1);
+    let limitsX = (clientWidth - elementWidth);
+    let limitsY = (clientHeight - elementHeight);
+    let randY = Math.floor((Math.random() * limitsY));
+    let randX = Math.floor((Math.random() * limitsX));
 
     clickElement.style.transform = `translate(${randX}px, ${randY}px)`
 
@@ -75,19 +74,16 @@ function resizeElement() {
 
     switch (true) {
         case viewPortX <= 480:
-            clickElement.style.height = getRandomSize(20, 100) +'px';
-            clickElement.style.width = getRandomSize(20, 100)+'px';
+            clickElement.style.height = getRandomSize(20, 100) + 'px';
+            clickElement.style.width = getRandomSize(20, 100) + 'px';
             break;
         case viewPortX > 480 && viewPortX <= 768:
-            clickElement.style.height = getRandomSize(50, 200)+'px';
-            clickElement.style.width = getRandomSize(50, 200)+'px';
+            clickElement.style.height = getRandomSize(50, 200) + 'px';
+            clickElement.style.width = getRandomSize(50, 200) + 'px';
             break;
         case viewPortX > 768:
-            console.log('aqui');
-            clickElement.style.height = getRandomSize(50, 300)+'px';
-            console.log(getRandomSize(50, 300));
-            clickElement.style.width = getRandomSize(50, 300)+'px';
-            console.log(getRandomSize(50, 300));
+            clickElement.style.height = getRandomSize(50, 300) + 'px';
+            clickElement.style.width = getRandomSize(50, 300) + 'px';
             break;
     }
 
