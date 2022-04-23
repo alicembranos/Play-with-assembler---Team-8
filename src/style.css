@@ -45,6 +45,11 @@ main {
     border: 1px solid black;
 }
 
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
 
 .show {
     display: block;
