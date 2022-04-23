@@ -43,6 +43,25 @@ main {
 .wireframe {
     display: block;
     border: 1px solid black;
+    width: 100%;
+    min-height: 600px;
+    position: relative;
+}
+
+#clickElement {
+    background-color: #def;
+    height: fit-content;
+    width: fit-content;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+#clickElement>p {
+    margin: auto;
 }
 
 form {
