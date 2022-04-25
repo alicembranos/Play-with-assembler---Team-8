@@ -1,6 +1,4 @@
-import {
-    showVisibility
-} from "./functions.js"
+import { showVisibility, movingElement } from "./functions.js";
 
 const wireFrame1 = document.getElementById("wireframe1");
 const wireFrame2 = document.getElementById("wireframe2");
@@ -12,90 +10,109 @@ const startBtn = document.getElementById("startButton");
 const start = document.getElementById("startGameButton");
 const playAgain = document.getElementById("playAgainButton");
 
+const userNameInput = document.getElementById("username");
+const errorMessage = document.getElementById("error_messagge");
+
 const boardGame = document.getElementById("boardGame");
 const clickElement = document.getElementById("clickElement");
 
+const listScore = document.getElementById("listScore");
+
+// Storing user info in objects
+
+let user = {
+  username: "",
+  //   currentPlaying: true,
+  scores: 0,
+};
+
+let arrayRanking = [
+  {
+    username: "Cris",
+    scores: 6,
+  },
+  {
+    username: "Carlos",
+    scores: 9,
+  },
+  {
+    username: "Alicia",
+    scores: 1,
+  },
+];
+
+// localStorage.setItem("ranking", JSON.stringify(arrayRanking));
+
+upLoadRanking();
+
 startBtn.addEventListener("click", function () {
+  if (validateForm()) {
+    loadUser(userNameInput.value);
+
     showVisibility(wireFrame1, wireFrame2);
+  }
 });
 
 start.addEventListener("click", function () {
-    showVisibility(wireFrame2, wireFrame3);
+  showVisibility(wireFrame2, wireFrame3);
 });
 
 playAgain.addEventListener("click", function () {
-    showVisibility(wireFrame5, wireFrame3);
-    console.log("hola");
+  showVisibility(wireFrame5, wireFrame3);
 });
 
-
 /****** Functions for Wireframe 4 (Game) *******/
-clickElement.addEventListener("click", movingElement);
+clickElement.addEventListener("click", function () {
+  movingElement();
+});
 
-function movingElement() {
+function loadUser(userName, scores = "current playing") {
+  //
+  user.username = userName;
+  user.scores = scores;
 
-    resizeElement();
-    //Get the elements parent size
-    let clientWidth = boardGame.clientWidth;
-    let elementWidth = clickElement.clientWidth;
-    let clientHeight = boardGame.clientHeight;
-    let elementHeight = clickElement.clientHeight;
-
-    //Limit to avoid going off screen
-    let limitsX = (clientWidth - elementWidth);
-    let limitsY = (clientHeight - elementHeight);
-    let randY = Math.floor((Math.random() * limitsY));
-    let randX = Math.floor((Math.random() * limitsX));
-
-    clickElement.style.transform = `translate(${randX}px, ${randY}px)`
-
+  arrayRanking.unshift(user);
 }
 
-function resizeElement() {
+loadUser();
 
-    const viewPortY = window.innerHeight;
-    const viewPortX = window.innerWidth;
+function upLoadRanking() {
+  let arrayRanking = JSON.parse(localStorage.getItem("ranking"));
 
-    // 320 px— 480 px: Mobile devices
-    // 481 px— 768 px: iPads, Tablets
-    // 769 px— 1024 px: Small screens, laptops
-    // 1025 px— 1200 px: Desktops, large screens
+  if (arrayRanking !== null) {
+    arrayRanking.sort(function (obj1, obj2) {
+      return obj2.scores - obj1.scores;
+    });
 
-    // Play Game Limits for resizing
-    //Mobiles:
-    // h:50px w:50px Min
-    // h:100px w:100px Max
-    // Tablets:
-    // h:100px w:100px Min
-    // h:200px w:200px Max
-    // Standard Screens:
-    // h:100px w:100px Max
-    // h:300px w:300px Max
-
-    switch (true) {
-        case viewPortX <= 480:
-            clickElement.style.height = getRandomSize(20, 100) + 'px';
-            clickElement.style.width = getRandomSize(20, 100) + 'px';
-            break;
-        case viewPortX > 480 && viewPortX <= 768:
-            clickElement.style.height = getRandomSize(50, 200) + 'px';
-            clickElement.style.width = getRandomSize(50, 200) + 'px';
-            break;
-        case viewPortX > 768:
-            clickElement.style.height = getRandomSize(50, 300) + 'px';
-            clickElement.style.width = getRandomSize(50, 300) + 'px';
-            break;
+    for (const ranking of arrayRanking) {
+      const liElement = document.createElement("li");
+      const parr1 = document.createElement("p");
+      const parr2 = document.createElement("p");
+      parr1.textContent = ranking.username;
+      parr2.textContent = ranking.scores;
+      parr1.setAttribute("class", "nameBold");
+      parr2.setAttribute("class", "score");
+      liElement.appendChild(parr1);
+      liElement.appendChild(parr2);
+      listScore.appendChild(liElement);
     }
+  }
+}
+upLoadRanking();
 
+function finalStorageScore(score) {
+  arrayRanking[0].scores = score;
+  localStorage.setItem("ranking", JSON.stringify(arrayRanking));
 }
 
-/* Function to get random sizes */
-function getRandomSize(min, max) {
-    let difference = max - min;
-    let rand = Math.random();
-    // multiply with difference 
-    rand = Math.floor(rand * difference);
-    // add with min value 
-    rand = rand + min;
-    return rand;
+function validateForm() {
+  const regex = /^[^\s]+$/;
+  if (userNameInput.value === "" || userNameInput.value === Number) {
+    errorMessage.textContent = "Please insert a name";
+    return false;
+  } else if (!regex.test(userNameInput.value)) {
+    errorMessage.textContent = "Please insert a name whitout blank spaces";
+    return false;
+  }
+  return true;
 }
