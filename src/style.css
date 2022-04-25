@@ -77,3 +77,8 @@ form {
 .hide {
   display: none;
 }
+
+#downcounter{
+    font-size: 20px;
+    width: 50rem;
+}
