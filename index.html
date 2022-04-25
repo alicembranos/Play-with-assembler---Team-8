@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <!--<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>-->
     <link rel="stylesheet" href="./src/style.css">
     <title>Document</title>
 </head>
@@ -20,29 +20,30 @@
     </header>
     <main>
 
-        <div class="container">
-            <section id="wireframe1" class="wireframe">
+        <div id ="boardGame" class="container">
+            <section id="wireframe1" class="wireframe hide">
                 <h2>LOG IN</h2>
-                <form action="">
+                <form method="#">
                     <label for="username"></label>
                     <input type="text" name="username" id="username">
-                    <button id="startButton" class="button"></button>
+                    <button id="startButton" class="button" type="button">Start</button>
                 </form>
             </section>
-            <section id="wireframe2" class="wireframe">
-                <button id="startGameButton" class="button"></button>
+            <section id="wireframe2" class="wireframe hide">
+                <button id="startGameButton" class="button">Start Game</button>
             </section>
-            <section id="wireframe3" class="wireframe">
+            <section id="wireframe3" class="wireframe hide">
                 <h2>GET READY...</h2>
                 <div id="downcounter"></div>
             </section>
             <section id="wireframe4" class="wireframe">
+                <div id="clickElement"><p>Click Me</p></div>
             </section>
-            <section id="wireframe5" class="wireframe">
+            <section id="wireframe5" class="wireframe hide">
                 <h2>GAME</h2>
                 <p></p>
                 <p></p>
-                <button id="playAgainButton" class="button"></button>
+                <button id="playAgainButton" class="button">Play Again</button>
             </section>
         </div>
 
@@ -52,8 +53,7 @@
                 <ul id="listScore" class="listScore"></ul>
             </div>
         </aside>
-
     </main>
+    <script src ="./src/main.js" type="module"></script>
 </body>
-
 </html>
