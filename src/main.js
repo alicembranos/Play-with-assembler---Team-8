@@ -26,20 +26,22 @@ let user = {
   scores: 0,
 };
 
-let arrayRanking = [
-  {
-    username: "Cris",
-    scores: 6,
-  },
-  {
-    username: "Carlos",
-    scores: 9,
-  },
-  {
-    username: "Alicia",
-    scores: 1,
-  },
-];
+// let arrayRanking = [
+//   {
+//     username: "Cris",
+//     scores: 6,
+//   },
+//   {
+//     username: "Carlos",
+//     scores: 9,
+//   },
+//   {
+//     username: "Alicia",
+//     scores: 1,
+//   },
+// ];
+
+let arrayRanking;
 
 // localStorage.setItem("ranking", JSON.stringify(arrayRanking));
 
@@ -66,6 +68,7 @@ clickElement.addEventListener("click", function () {
   movingElement();
 });
 
+// FUNCTIONS
 function loadUser(userName, scores = "current playing") {
   //
   user.username = userName;
@@ -77,7 +80,8 @@ function loadUser(userName, scores = "current playing") {
 loadUser();
 
 function upLoadRanking() {
-  let arrayRanking = JSON.parse(localStorage.getItem("ranking"));
+  arrayRanking = JSON.parse(localStorage.getItem("ranking"));
+  listScore.textContent = "";
 
   if (arrayRanking !== null) {
     arrayRanking.sort(function (obj1, obj2) {
@@ -98,7 +102,6 @@ function upLoadRanking() {
     }
   }
 }
-upLoadRanking();
 
 function finalStorageScore(score) {
   arrayRanking[0].scores = score;
