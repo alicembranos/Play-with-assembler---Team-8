@@ -25,7 +25,6 @@ start.addEventListener("click", function () {
 
 playAgain.addEventListener("click", function () {
     showVisibility(wireFrame5, wireFrame3);
-    console.log("hola");
 });
 
 
