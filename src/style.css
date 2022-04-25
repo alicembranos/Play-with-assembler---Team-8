@@ -4,7 +4,7 @@
 :root {
   /* --max-width: 800px; */
   --primary-color: #7a7a7a;
-  --secondary-color: #c3c3c3;
+  --secondary-color: #5a7c85;
   --light-color: #f4f4f4;
 }
 
@@ -12,23 +12,33 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
+  color: var(--light-color);
+}
+
+body {
+  background: #0F2027;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  height: 100vh;
+  /* overflow: hidden; */
 }
 
 header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
 main {
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  /* justify-content: space-between; */
+  gap: 2rem;
   flex-wrap: wrap;
   align-items: center;
-  width: 100%;
-  border: 1px solid black;
-  padding: 10px;
+  padding: 5rem;
 }
 
 .container {
@@ -37,15 +47,37 @@ main {
   justify-content: center;
   align-items: center;
   width: 70%;
-  border: 1px solid red;
+  border: 1px solid white;
+  height: 100%;
 }
 
 .wireframe {
-  display: block;
-  border: 1px solid black;
+  display: flex;
   width: 100%;
-  min-height: 600px;
+  height: 100%;
   position: relative;
+  background-color: var(--secondary-color);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.ranking{
+  height: 100%;
+  width: 25%;
+  background-color: var(--secondary-color);
+}
+
+.ranking__h3 {
+  text-align: center;
+  border-bottom: 3px solid ;
+  line-height: 3rem;
+  margin: 0 1rem;
+}
+
+.listScore {
+  list-style: none;
+  padding: 1rem;
 }
 
 #clickElement {
@@ -60,7 +92,7 @@ main {
   cursor: pointer;
 }
 
-#clickElement > p {
+#clickElement>p {
   margin: auto;
 }
 
@@ -78,7 +110,7 @@ form {
   display: none;
 }
 
-#downcounter{
-    font-size: 20px;
-    width: 50rem;
+#downcounter {
+  font-size: 20px;
+  width: 50rem;
 }
