@@ -60,12 +60,9 @@ start.addEventListener("click", function () {
 });
 
 playAgain.addEventListener("click", function () {
-    <<
-    << << < HEAD
-    showVisibility(wireFrame5, wireFrame3); ===
-    === =
-    showVisibility(wireFrame5, wireFrame3); >>>
-    >>> > c08ff8266dde4c474f3ccd22c83e8244df0d0ad3
+
+    showVisibility(wireFrame5, wireFrame3);
+    showVisibility(wireFrame5, wireFrame3);
 });
 
 /****** Functions for Wireframe 4 (Game) *******/
@@ -84,6 +81,7 @@ function loadUser(userName, scores = "current playing") {
 loadUser();
 
 function upLoadRanking() {
+
     let arrayRanking = JSON.parse(localStorage.getItem("ranking"));
 
     if (arrayRanking !== null) {
@@ -105,7 +103,6 @@ function upLoadRanking() {
         }
     }
 }
-upLoadRanking();
 
 function finalStorageScore(score) {
     arrayRanking[0].scores = score;

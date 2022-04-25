@@ -1,58 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!--<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>-->
     <link rel="stylesheet" href="./src/style.css" />
     <title>Document</title>
-  </head>
+</head>
 
-  <body>
+<body>
     <header>
-      <h1>10 SECONDS CLICK</h1>
-      <nav>
-        <i class="fa-solid fa-toggle-off">H</i>
-        <i class="fa-solid fa-circle-info">H</i>
-      </nav>
+        <h1>10 SECONDS CLICK</h1>
+        <nav>
+            <i class="fa-solid fa-toggle-off">H</i>
+            <i class="fa-solid fa-circle-info">H</i>
+        </nav>
     </header>
     <main>
-      <div id="boardGame" class="container">
-        <section id="wireframe1" class="wireframe">
-          <h2>LOG IN</h2>
-          <form method="#">
-            <label for="username"></label>
-            <input type="text" name="username" id="username" />
-            <p id="error_messagge" class="error_messagge"></p>
-            <button id="startButton" class="button" type="button">Start</button>
-          </form>
-        </section>
-        <section id="wireframe2" class="wireframe hide">
-          <button id="startGameButton" class="button">Start Game</button>
-        </section>
-        <section id="wireframe3" class="wireframe hide">
-          <h2>GET READY...</h2>
-          <div id="downcounter"></div>
-        </section>
-        <section id="wireframe4" class="wireframe hide">
-          <div id="clickElement"><p>Click Me</p></div>
-        </section>
-        <section id="wireframe5" class="wireframe hide">
-          <h2>GAME</h2>
-          <p></p>
-          <p></p>
-          <button id="playAgainButton" class="button">Play Again</button>
-        </section>
-      </div>
-
-      <aside id="ranking" class="ranking">
-        <h3>RANKING</h3>
-        <div id="scoreRanking" class="scroll">
-          <ul id="listScore" class="listScore"></ul>
+        <div id="boardGame" class="container">
+            <section id="wireframe1" class="wireframe">
+                <h2>LOG IN</h2>
+                <form method="#">
+                    <label for="username"></label>
+                    <input type="text" name="username" id="username" />
+                    <p id="error_messagge" class="error_messagge"></p>
+                    <button id="startButton" class="button" type="button">Start</button>
+                </form>
+            </section>
+            <section id="wireframe2" class="wireframe hide">
+                <button id="startGameButton" class="button">Start Game</button>
+            </section>
+            <section id="wireframe3" class="wireframe hide">
+                <h2>GET READY...</h2>
+                <div id="downcounter"></div>
+            </section>
+            <section id="wireframe4" class="wireframe hide">
+                <div id="clickElement">
+                    <p>Click Me</p>
+                </div>
+            </section>
+            <section id="wireframe5" class="wireframe hide">
+                <h2>GAME</h2>
+                <p></p>
+                <p></p>
+                <button id="playAgainButton" class="button">Play Again</button>
+            </section>
         </div>
-      </aside>
+
+        <aside id="ranking" class="ranking">
+            <h3>RANKING</h3>
+            <div id="scoreRanking" class="scroll">
+                <ul id="listScore" class="listScore"></ul>
+            </div>
+        </aside>
     </main>
     <script src="./src/main.js" type="module"></script>
-  </body>
+</body>
+
 </html>
