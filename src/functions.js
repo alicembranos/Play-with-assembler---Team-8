@@ -67,4 +67,7 @@ function getRandomSize(min, max) {
   return rand;
 }
 
-export { showVisibility, movingElement };
+export {
+  showVisibility,
+  movingElement
+};

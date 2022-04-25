@@ -25,32 +25,32 @@ const listScore = document.getElementById("listScore");
 
 let user = {
     username: "",
-    //   currentPlaying: true,
     scores: 0,
 };
 
-let arrayRanking = [{
-        username: "Cris",
-        scores: 6,
-    },
-    {
-        username: "Carlos",
-        scores: 9,
-    },
-    {
-        username: "Alicia",
-        scores: 1,
-    },
-];
+let arrayRanking = [];
+// let arrayRanking = [{
+//         username: "Cris",
+//         scores: 6,
+//     },
+//     {
+//         username: "Carlos",
+//         scores: 9,
+//     },
+//     {
+//         username: "Alicia",
+//         scores: 1,
+//     },
+// ];
 
 // localStorage.setItem("ranking", JSON.stringify(arrayRanking));
 
 upLoadRanking();
 
 startBtn.addEventListener("click", function () {
+    document.getElementById("clickSound").play();
     if (validateForm()) {
         loadUser(userNameInput.value);
-
         showVisibility(wireFrame1, wireFrame2);
     }
 });
