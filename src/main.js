@@ -29,21 +29,6 @@ let user = {
     scores: 0,
 };
 
-<<<<<<< HEAD
-let arrayRanking = [{
-        username: "Cris",
-        scores: 6,
-    },
-    {
-        username: "Carlos",
-        scores: 9,
-    },
-    {
-        username: "Alicia",
-        scores: 1,
-    },
-];
-=======
 // let arrayRanking = [
 //   {
 //     username: "Cris",
@@ -60,7 +45,6 @@ let arrayRanking = [{
 // ];
 
 let arrayRanking;
->>>>>>> a12b702f0e98a00275c5603d1dc9569dec55f8a7
 
 // localStorage.setItem("ranking", JSON.stringify(arrayRanking));
 
@@ -101,11 +85,8 @@ function loadUser(userName, scores = "current playing") {
 loadUser();
 
 function upLoadRanking() {
-<<<<<<< HEAD
-=======
-  arrayRanking = JSON.parse(localStorage.getItem("ranking"));
-  listScore.textContent = "";
->>>>>>> a12b702f0e98a00275c5603d1dc9569dec55f8a7
+    arrayRanking = JSON.parse(localStorage.getItem("ranking"));
+    listScore.textContent = "";
 
     let arrayRanking = JSON.parse(localStorage.getItem("ranking"));
 
