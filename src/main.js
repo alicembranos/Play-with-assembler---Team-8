@@ -20,6 +20,11 @@ const boardGame = document.getElementById("boardGame");
 const clickElement = document.getElementById("clickElement");
 
 const listScore = document.getElementById("listScore");
+const downcounter = document.getElementById("downcounter");
+
+let counterClicks = 0;
+let interval;
+let intervalGame;
 
 // Storing user info in objects
 
@@ -29,24 +34,24 @@ let user = {
     scores: 0,
 };
 
-// let arrayRanking = [
-//   {
-//     username: "Cris",
-//     scores: 6,
-//   },
-//   {
-//     username: "Carlos",
-//     scores: 9,
-//   },
-//   {
-//     username: "Alicia",
-//     scores: 1,
-//   },
-// ];
+let arrayRanking = [
+    {
+        username: "Cris",
+        scores: 6,
+    },
+    {
+        username: "Carlos",
+        scores: 9,
+    },
+    {
+        username: "Alicia",
+        scores: 1,
+    },
+];
 
-let arrayRanking;
+//let arrayRanking = [];
 
-// localStorage.setItem("ranking", JSON.stringify(arrayRanking));
+localStorage.setItem("ranking", JSON.stringify(arrayRanking));
 
 upLoadRanking();
 
@@ -60,16 +65,17 @@ startBtn.addEventListener("click", function () {
 
 start.addEventListener("click", function () {
     showVisibility(wireFrame2, wireFrame3);
+    timerReady();
 });
 
 playAgain.addEventListener("click", function () {
-
     showVisibility(wireFrame5, wireFrame3);
-    showVisibility(wireFrame5, wireFrame3);
+    timerReady();
 });
 
 /****** Functions for Wireframe 4 (Game) *******/
 clickElement.addEventListener("click", function () {
+    counterClicks++;
     movingElement();
 });
 
@@ -79,34 +85,19 @@ function loadUser(userName, scores = "current playing") {
     user.username = userName;
     user.scores = scores;
 
-    arrayRanking.unshift(user);
+    if (arrayRanking === "null") {
+        arrayRanking.push(user);
+    } else {
+        arrayRanking.unshift(user);
+    }
+    createList(arrayRanking);
 }
 
-loadUser();
-
 function upLoadRanking() {
-    arrayRanking = JSON.parse(localStorage.getItem("ranking"));
-    listScore.textContent = "";
-
-    let arrayRanking = JSON.parse(localStorage.getItem("ranking"));
-
-    if (arrayRanking !== null) {
-        arrayRanking.sort(function (obj1, obj2) {
-            return obj2.scores - obj1.scores;
-        });
-
-        for (const ranking of arrayRanking) {
-            const liElement = document.createElement("li");
-            const parr1 = document.createElement("p");
-            const parr2 = document.createElement("p");
-            parr1.textContent = ranking.username;
-            parr2.textContent = ranking.scores;
-            parr1.setAttribute("class", "nameBold");
-            parr2.setAttribute("class", "score");
-            liElement.appendChild(parr1);
-            liElement.appendChild(parr2);
-            listScore.appendChild(liElement);
-        }
+    console.log(localStorage.getItem("ranking"));
+    if (localStorage.getItem("ranking") !== "null") {
+        arrayRanking = JSON.parse(localStorage.getItem("ranking"));
+        createList(arrayRanking);
     }
 }
 
@@ -125,4 +116,71 @@ function validateForm() {
         return false;
     }
     return true;
+}
+
+//Timer of step three
+function timerReady() {
+    let timeToStart = 4;
+    interval = setInterval(function () {
+        //show countdown
+        downcounter.textContent = timeToStart-1;
+        console.log(downcounter.textContent);
+        timeToStart--;
+        if (timeToStart == 0) {
+            stopReady();
+        }
+    }, 1000);
+}
+
+function stopReady() {
+    setTimeout(function () {
+        clearInterval(interval, 1000);
+    }, 1000);
+    showVisibility(wireFrame3, wireFrame4);
+    timerGame();
+}
+
+//Timer of GAME
+function timerGame(){
+    let timeToEnd = 10;
+    intervalGame = setInterval(function () {
+        //show countdown
+        console.log(timeToEnd);
+        timeToEnd--;
+        if (timeToEnd == 0) {
+            stopGame();
+        }
+    }, 1000);
+}
+
+function stopGame(){
+    setTimeout(function () {
+        clearInterval(intervalGame, 1000);
+    }, 5)
+    showVisibility(wireFrame4, wireFrame5);
+    arrayRanking[0].scores = counterClicks;
+    counterClicks = 0;
+    createList(arrayRanking);
+    localStorage.setItem('ranking', JSON.stringify(arrayRanking));
+}
+
+function createList(array) {
+    array.sort(function (obj1, obj2) {
+        return obj2.scores - obj1.scores;
+    });
+
+    listScore.textContent = "";
+
+    for (const item of array) {
+        const liElement = document.createElement("li");
+        const parr1 = document.createElement("p");
+        const parr2 = document.createElement("p");
+        parr1.textContent = item.username;
+        parr2.textContent = item.scores;
+        parr1.setAttribute("class", "nameBold");
+        parr2.setAttribute("class", "score");
+        liElement.appendChild(parr1);
+        liElement.appendChild(parr2);
+        listScore.appendChild(liElement);
+    }
 }
