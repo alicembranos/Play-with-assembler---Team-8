@@ -60,15 +60,18 @@ function resizeElement() {
     switch (true) {
         case viewPortX <= 480:
             clickElement.style.height = getRandomSize(20, 100) + "px";
-            clickElement.style.width = getRandomSize(20, 100) + "px";
+            clickElement.style.width = clickElement.style.height;
+            // clickElement.style.width = getRandomSize(20, 100) + "px";
             break;
         case viewPortX > 480 && viewPortX <= 768:
             clickElement.style.height = getRandomSize(50, 200) + "px";
-            clickElement.style.width = getRandomSize(50, 200) + "px";
+            clickElement.style.width = clickElement.style.height;
+            // clickElement.style.width = getRandomSize(50, 200) + "px";
             break;
         case viewPortX > 768:
             clickElement.style.height = getRandomSize(50, 300) + "px";
-            clickElement.style.width = getRandomSize(50, 300) + "px";
+            clickElement.style.width = clickElement.style.height;
+            // clickElement.style.width = getRandomSize(50, 300) + "px";
             break;
     }
 }
@@ -124,6 +127,18 @@ function validateForm() {
     return true;
 }
 
+function loadFinalScore(username, score) {
+    const gameOver = document.getElementById("gameOver");
+    const parr1 = document.createElement("p");
+    const parr2 = document.createElement("p");
+    parr1.textContent = `${username} your score is`;
+    parr2.textContent = `${score} clicks&#127866`;
+    parr1.setAttribute("class", "finalGameUser__p");
+    parr2.setAttribute("class", "finalGameScore__p");
+    gameOver.appendChild(parr1);
+    gameOver.appendChild(parr2);
+    
+}
 //Timer of step three
 function timerReady() {
     interval = setInterval(function () {
@@ -168,6 +183,7 @@ function stopGame() {
     arrayRanking[0].scores = counterClicks;
     createList(arrayRanking);
     localStorage.setItem('ranking', JSON.stringify(arrayRanking));
+    loadFinalScore(arrayRanking[0].username, arrayRanking[0].scores);
 }
 
 function createList(array) {

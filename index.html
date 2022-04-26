@@ -21,9 +21,9 @@
     </header>
     <main class="mainContainer__main">
         <div id="boardGame" class="container">
-            <section id="wireframe1" class="wireframe__section">
+            <section id="wireframe1" class="wireframe__section hide">
                 <h2 class="title__h2--login">LOG IN</h2>
-                <form method="#">
+                <form class="container__form" method="#">
                     <label class ="form__label--size" for="username">Username</label>
                     <input class="form__input--size" type="text" name="username" id="username" />
                     <p id="error_messagge" class="error_messagge">Invalid</p>
@@ -31,7 +31,7 @@
                 </form>
             </section>
             <section id="wireframe2" class="wireframe__section hide">
-                <button id="startGameButton" class="button">Start Game</button>
+                <button id="startGameButton" class="form__button--size">Start Game</button>
             </section>
             <section id="wireframe3" class="wireframe__section hide">
                 <h2>GET READY...</h2>
@@ -39,14 +39,13 @@
             </section>
             <section id="wireframe4" class="wireframe__section hide">
                 <div id="clickElement" class="click-element__div">
-                    <!-- <p>Click Me</p> -->
                 </div>
             </section>
-            <section id="wireframe5" class="wireframe__section hide">
-                <h2>GAME</h2>
-                <p></p>
-                <p></p>
-                <button id="playAgainButton" class="button">Play Again</button>
+            <section id="wireframe5" class="wireframe__section">
+                <h2 id="gameOver" class="gameOver__h2">GAME OVER</h2>
+                <p class="finalGameUser__p">user your score is</p>
+                <p class="finalGameScore__p">100 clicks&#127866</p>
+                <button id="playAgainButton" class="form__button--size">Play Again</button>
             </section>
         </div>
 
