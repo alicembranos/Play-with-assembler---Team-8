@@ -118,7 +118,7 @@ function loadUser(userName, scores = "current playing") {
 
 function upLoadRanking() {
     console.log(localStorage.getItem("ranking"));
-    if (localStorage.getItem("ranking") !== "null") {
+    if (localStorage.getItem("ranking") !== null) {
         arrayRanking = JSON.parse(localStorage.getItem("ranking"));
         createList(arrayRanking);
     }
@@ -142,6 +142,14 @@ function validateForm() {
 }
 
 function loadFinalScore(username, score) {
+    const p1 = document.querySelector(".finalGameUser__p");
+    const p2 = document.querySelector(".finalGameScore__p");
+
+    if (p1) {
+        p1.remove();
+        p2.remove();
+    }
+    
     const gameOver = document.getElementById("gameOver");
     const parr1 = document.createElement("p");
     const parr2 = document.createElement("p");
@@ -152,6 +160,7 @@ function loadFinalScore(username, score) {
     gameOver.appendChild(parr1);
     gameOver.appendChild(parr2);
 }
+
 //Timer of step three
 function timerReady() {
     interval = setInterval(function () {
@@ -191,7 +200,7 @@ function timerGame() {
 function stopGame() {
     setTimeout(function () {
         clearInterval(intervalGame, 1000);
-    }, 5);
+    }, 3000);
     showVisibility(wireFrame4, wireFrame5);
     arrayRanking[0].scores = counterClicks;
     createList(arrayRanking);

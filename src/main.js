@@ -53,7 +53,6 @@ var counterClicks = 0;
 upLoadRanking();
 
 startBtn.addEventListener("click", function () {
-    document.getElementById("clickSound").play();
     if (validateForm()) {
         loadUser(userNameInput.value);
         showVisibility(wireFrame1, wireFrame2);
