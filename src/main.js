@@ -18,6 +18,7 @@ const clickElement = document.getElementById("clickElement");
 
 const listScore = document.getElementById("listScore");
 const downcounter = document.getElementById("downcounter");
+const explosion = document.getElementById("audioBomb");
 
 var counterClicks = 0;
 
@@ -66,6 +67,7 @@ playAgain.addEventListener("click", function () {
 
 /****** Functions for Wireframe 4 (Game) *******/
 clickElement.addEventListener("click", function () {
+    audioBomb.play();
     counterClicks++;
     movingElement();
 });

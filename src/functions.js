@@ -4,11 +4,13 @@ import {
     wireFrame5,
     counterClicks
 } from './main.js';
+
 let arrayRanking = [];
 const userNameInput = document.getElementById("username");
 let interval;
 let intervalGame;
 let timeToStart = 4;
+const clip = document.getElementById("audio");
 
 let user = {
     username: "",
@@ -168,9 +170,12 @@ function timerGame() {
     intervalGame = setInterval(function () {
         //show countdown
         console.log(timeToEnd);
+        clip.play();
+        clip.volume = 0.5;
         timeToEnd--;
         if (timeToEnd == 0) {
             stopGame();
+            clip.pause();
         }
     }, 1000);
 }

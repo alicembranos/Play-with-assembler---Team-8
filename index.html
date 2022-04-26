@@ -21,7 +21,7 @@
     </header>
     <main class="mainContainer__main">
         <div id="boardGame" class="container">
-            <section id="wireframe1" class="wireframe__section hide">
+            <section id="wireframe1" class="wireframe__section">
                 <h2 class="title__h2--login">LOG IN</h2>
                 <form class="container__form" method="#">
                     <label class ="form__label--size" for="username">Username</label>
@@ -39,9 +39,15 @@
             </section>
             <section id="wireframe4" class="wireframe__section hide">
                 <div id="clickElement" class="click-element__div">
+                    <audio id="audioBomb" class = "audio_style" controls>
+                        <source type="audio/wav" src="./src/assets/images/explosion.mp3">
+                    </audio>
                 </div>
+                <audio id="audio" class = "audio_style" controls>
+                    <source type="audio/wav" src="./src/assets/images/clip.mp3">
+                </audio>
             </section>
-            <section id="wireframe5" class="wireframe__section">
+            <section id="wireframe5" class="wireframe__section hide">
                 <h2 id="gameOver" class="gameOver__h2">GAME OVER</h2>
                 <p class="finalGameUser__p">user your score is</p>
                 <p class="finalGameScore__p">100 clicks&#127866</p>
