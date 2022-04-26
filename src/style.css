@@ -239,8 +239,6 @@ form {
 }
 
 @media (max-width:1000px){
-
-
   .ranking {
     flex-grow: 1;
   }
