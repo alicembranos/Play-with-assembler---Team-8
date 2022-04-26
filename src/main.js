@@ -1,7 +1,4 @@
-import {
-    showVisibility,
-    movingElement
-} from "./functions.js";
+import { showVisibility, movingElement, loadUser , upLoadRanking , timerGame , timerReady , validateForm} from "./functions.js";
 
 const wireFrame1 = document.getElementById("wireframe1");
 const wireFrame2 = document.getElementById("wireframe2");
@@ -20,16 +17,15 @@ const boardGame = document.getElementById("boardGame");
 const clickElement = document.getElementById("clickElement");
 
 const listScore = document.getElementById("listScore");
+const downcounter = document.getElementById("downcounter");
+
+var counterClicks = 0;
 
 // Storing user info in objects
 
-let user = {
-    username: "",
-    scores: 0,
-};
 
-let arrayRanking = [];
-// let arrayRanking = [{
+// let arrayRanking = [
+//     {
 //         username: "Cris",
 //         scores: 6,
 //     },
@@ -43,7 +39,9 @@ let arrayRanking = [];
 //     },
 // ];
 
-// localStorage.setItem("ranking", JSON.stringify(arrayRanking));
+//let arrayRanking = [];
+
+//localStorage.setItem("ranking", JSON.stringify(arrayRanking));
 
 upLoadRanking();
 
@@ -57,66 +55,19 @@ startBtn.addEventListener("click", function () {
 
 start.addEventListener("click", function () {
     showVisibility(wireFrame2, wireFrame3);
+    timerReady();
 });
 
 playAgain.addEventListener("click", function () {
-
     showVisibility(wireFrame5, wireFrame3);
-    showVisibility(wireFrame5, wireFrame3);
+    counterClicks = 0;
+    timerReady();
 });
 
 /****** Functions for Wireframe 4 (Game) *******/
 clickElement.addEventListener("click", function () {
+    counterClicks++;
     movingElement();
 });
 
-function loadUser(userName, scores = "current playing") {
-    //
-    user.username = userName;
-    user.scores = scores;
-
-    arrayRanking.unshift(user);
-}
-
-loadUser();
-
-function upLoadRanking() {
-
-    let arrayRanking = JSON.parse(localStorage.getItem("ranking"));
-
-    if (arrayRanking !== null) {
-        arrayRanking.sort(function (obj1, obj2) {
-            return obj2.scores - obj1.scores;
-        });
-
-        for (const ranking of arrayRanking) {
-            const liElement = document.createElement("li");
-            const parr1 = document.createElement("p");
-            const parr2 = document.createElement("p");
-            parr1.textContent = ranking.username;
-            parr2.textContent = ranking.scores;
-            parr1.setAttribute("class", "nameBold");
-            parr2.setAttribute("class", "score");
-            liElement.appendChild(parr1);
-            liElement.appendChild(parr2);
-            listScore.appendChild(liElement);
-        }
-    }
-}
-
-function finalStorageScore(score) {
-    arrayRanking[0].scores = score;
-    localStorage.setItem("ranking", JSON.stringify(arrayRanking));
-}
-
-function validateForm() {
-    const regex = /^[^\s]+$/;
-    if (userNameInput.value === "" || userNameInput.value === Number) {
-        errorMessage.textContent = "Please insert a name";
-        return false;
-    } else if (!regex.test(userNameInput.value)) {
-        errorMessage.textContent = "Please insert a name whitout blank spaces";
-        return false;
-    }
-    return true;
-}
+export {wireFrame3, wireFrame4,wireFrame5, counterClicks};
