@@ -43,7 +43,7 @@ var counterClicks = 0;
 
 //localStorage.setItem("ranking", JSON.stringify(arrayRanking));
 
-upLoadRanking();
+// upLoadRanking();
 
 startBtn.addEventListener("click", function () {
     document.getElementById("clickSound").play();
