@@ -7,35 +7,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!--<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>-->
     <link rel="stylesheet" href="./src/style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <title>Document</title>
 </head>
 
 <body>
     <header>
-        <h1>10 SECONDS CLICK</h1>
+        <img src="./src/assets/images/bomb_header.png" alt="" class="bombHeader__img" />
+        <h1 class="header__h1">
+            <i class="fa-solid fa-bomb fa-1x"></i><span class="header__h1-number10">10</span> SECONDS CLICK
+        </h1>
         <nav>
-            <i class="fa-solid fa-toggle-off"></i>
-            <i class="fa-solid fa-circle-info"></i>
+            <i class="fa-solid fa-circle-info fa-2x"></i>
         </nav>
     </header>
     <main class="mainContainer__main">
         <div id="boardGame" class="container">
             <section id="wireframe1" class="wireframe__section hide">
                 <h2 class="title__h2--login">LOG IN</h2>
-                <form method="#">
+                <form class="container__form" method="#">
                     <label class="form__label--size" for="username">Username</label>
                     <input class="form__input--size" type="text" name="username" id="username" />
-                    <p id="error_messagge" class="error_messagge">Invalid</p>
-                    <button id="startButton" class="form__button--size" type="button">Start</button>
+                    <p id="error_messagge" class="error_messagge"></p>
+                    <button id="startButton" class="form__button--size" type="button">
+                        Start
+                    </button>
                 </form>
             </section>
             <section id="wireframe2" class="wireframe__section hide">
-                <button id="startGameButton" class="button">Start Game</button>
+                <button id="startGameButton" class="form__button--size">
+                    Start Game
+                </button>
             </section>
             <section id="wireframe3" class="wireframe__section hide">
-                <h2>GET READY...</h2>
-                <div id="downcounter"></div>
+                <h2 class="ready___h2--scale">GET READY...</h2>
+                <div id="downcounter" class="downcounter__div"></div>
             </section>
             <section id="wireframe4" class="wireframe__section">
                 <div id="boom"></div>
@@ -45,14 +51,13 @@
                     src="https://cdn.weasyl.com/~tokoyami/submissions/1624479/59e26bb8a08663384cc409703949a1baf09de06cfddd4601c5bf96ae2222d1c8/tokoyami-game-over-transparent-f2u.png"
                     alt="game OVER">
                 <div id="clickElement" class="click-element__div">
-                    <p>Click Me</p>
                 </div>
             </section>
             <section id="wireframe5" class="wireframe__section hide">
-                <h2>GAME</h2>
-                <p></p>
-                <p></p>
-                <button id="playAgainButton" class="button">Play Again</button>
+                <h2 id="gameOver" class="gameOver__h2">GAME OVER</h2>
+                <button id="playAgainButton" class="form__button--size">
+                    Play Again
+                </button>
             </section>
         </div>
 
@@ -60,60 +65,6 @@
             <h3 class="ranking__h3">RANKING</h3>
             <div id="scoreRanking" class="ranking__div--scroll">
                 <ul id="listScore" class="ranking__ul">
-                    <li class="ranking__li--box">
-                        <img class="ranking__img" src="./src/assets/images/bear.png" alt="">
-                        <p class="ranking__p--name">Oso</p>
-                        <p class="ranking__p--score">400 <i class="fa-solid fa-star ranking__i"></i> </p>
-                        <i></i>
-                    </li>
-                    <li class="ranking__li--box">
-                        <img class="ranking__img" src="./src/assets/images/bear.png" alt="">
-                        <p class="ranking__p--name">Oso</p>
-                        <p class="ranking__p--score">400 <i class="fa-solid fa-star ranking__i"></i> </p>
-                        <i></i>
-                    </li>
-                    <li class="ranking__li--box">
-                        <img class="ranking__img" src="./src/assets/images/bear.png" alt="">
-                        <p class="ranking__p--name">Oso</p>
-                        <p class="ranking__p--score">400 <i class="fa-solid fa-star ranking__i"></i> </p>
-                        <i></i>
-                    </li>
-                    <li class="ranking__li--box">
-                        <img class="ranking__img" src="./src/assets/images/bear.png" alt="">
-                        <p class="ranking__p--name">Oso</p>
-                        <p class="ranking__p--score">400 <i class="fa-solid fa-star ranking__i"></i> </p>
-                        <i></i>
-                    </li>
-                    <li class="ranking__li--box">
-                        <img class="ranking__img" src="./src/assets/images/bear.png" alt="">
-                        <p class="ranking__p--name">Oso</p>
-                        <p class="ranking__p--score">400 <i class="fa-solid fa-star ranking__i"></i> </p>
-                        <i></i>
-                    </li>
-                    <li class="ranking__li--box">
-                        <img class="ranking__img" src="./src/assets/images/bear.png" alt="">
-                        <p class="ranking__p--name">Oso</p>
-                        <p class="ranking__p--score">400 <i class="fa-solid fa-star ranking__i"></i> </p>
-                        <i></i>
-                    </li>
-                    <li class="ranking__li--box">
-                        <img class="ranking__img" src="./src/assets/images/bear.png" alt="">
-                        <p class="ranking__p--name">Oso</p>
-                        <p class="ranking__p--score">400 <i class="fa-solid fa-star ranking__i"></i> </p>
-                        <i></i>
-                    </li>
-                    <li class="ranking__li--box">
-                        <img class="ranking__img" src="./src/assets/images/bear.png" alt="">
-                        <p class="ranking__p--name">Oso</p>
-                        <p class="ranking__p--score">400 <i class="fa-solid fa-star ranking__i"></i> </p>
-                        <i></i>
-                    </li>
-                    <li class="ranking__li--box">
-                        <img class="ranking__img" src="./src/assets/images/bear.png" alt="">
-                        <p class="ranking__p--name">Oso</p>
-                        <p class="ranking__p--score">400 <i class="fa-solid fa-star ranking__i"></i> </p>
-                        <i></i>
-                    </li>
                 </ul>
             </div>
         </aside>

@@ -1,4 +1,12 @@
-import { showVisibility, movingElement, loadUser , upLoadRanking , timerGame , timerReady , validateForm} from "./functions.js";
+import {
+    showVisibility,
+    movingElement,
+    loadUser,
+    upLoadRanking,
+    timerGame,
+    timerReady,
+    validateForm,
+} from "./functions.js";
 
 const wireFrame1 = document.getElementById("wireframe1");
 const wireFrame2 = document.getElementById("wireframe2");
@@ -23,7 +31,6 @@ var counterClicks = 0;
 
 // Storing user info in objects
 
-
 // let arrayRanking = [
 //     {
 //         username: "Cris",
@@ -43,7 +50,7 @@ var counterClicks = 0;
 
 //localStorage.setItem("ranking", JSON.stringify(arrayRanking));
 
-// upLoadRanking();
+upLoadRanking();
 
 startBtn.addEventListener("click", function () {
     document.getElementById("clickSound").play();
@@ -70,4 +77,9 @@ clickElement.addEventListener("click", function () {
     movingElement();
 });
 
-export {wireFrame3, wireFrame4,wireFrame5, counterClicks};
+export {
+    wireFrame3,
+    wireFrame4,
+    wireFrame5,
+    counterClicks
+};

@@ -3,16 +3,29 @@ import {
     wireFrame4,
     wireFrame5,
     counterClicks
-} from './main.js';
+} from "./main.js";
 let arrayRanking = [];
 const userNameInput = document.getElementById("username");
 let interval;
 let intervalGame;
 let timeToStart = 4;
 
+const arrayUserImage = [
+    "bear",
+    "cat",
+    "chicken",
+    "cow",
+    "deer",
+    "dog",
+    "fox",
+    "monkey",
+    "pig",
+];
+
 let user = {
     username: "",
     scores: 0,
+    photoProfile: "",
 };
 
 function showVisibility(current, next) {
@@ -60,15 +73,18 @@ function resizeElement() {
     switch (true) {
         case viewPortX <= 480:
             clickElement.style.height = getRandomSize(20, 100) + "px";
-            clickElement.style.width = getRandomSize(20, 100) + "px";
+            clickElement.style.width = clickElement.style.height;
+            // clickElement.style.width = getRandomSize(20, 100) + "px";
             break;
         case viewPortX > 480 && viewPortX <= 768:
             clickElement.style.height = getRandomSize(50, 200) + "px";
-            clickElement.style.width = getRandomSize(50, 200) + "px";
+            clickElement.style.width = clickElement.style.height;
+            // clickElement.style.width = getRandomSize(50, 200) + "px";
             break;
         case viewPortX > 768:
             clickElement.style.height = getRandomSize(50, 300) + "px";
-            clickElement.style.width = getRandomSize(50, 300) + "px";
+            clickElement.style.width = clickElement.style.height;
+            // clickElement.style.width = getRandomSize(50, 300) + "px";
             break;
     }
 }
@@ -90,6 +106,7 @@ function loadUser(userName, scores = "current playing") {
     //
     user.username = userName;
     user.scores = scores;
+    user.photoProfile = useImgProfile(arrayUserImage);
 
     if (arrayRanking === "null") {
         arrayRanking.push(user);
@@ -124,6 +141,17 @@ function validateForm() {
     return true;
 }
 
+function loadFinalScore(username, score) {
+    const gameOver = document.getElementById("gameOver");
+    const parr1 = document.createElement("p");
+    const parr2 = document.createElement("p");
+    parr1.textContent = `${username} your score is`;
+    parr2.textContent = `${score} clicks 🍻`;
+    parr1.setAttribute("class", "finalGameUser__p");
+    parr2.setAttribute("class", "finalGameScore__p");
+    gameOver.appendChild(parr1);
+    gameOver.appendChild(parr2);
+}
 //Timer of step three
 function timerReady() {
     interval = setInterval(function () {
@@ -163,11 +191,12 @@ function timerGame() {
 function stopGame() {
     setTimeout(function () {
         clearInterval(intervalGame, 1000);
-    }, 5)
+    }, 5);
     showVisibility(wireFrame4, wireFrame5);
     arrayRanking[0].scores = counterClicks;
     createList(arrayRanking);
-    localStorage.setItem('ranking', JSON.stringify(arrayRanking));
+    localStorage.setItem("ranking", JSON.stringify(arrayRanking));
+    loadFinalScore(arrayRanking[0].username, arrayRanking[0].scores);
 }
 
 function createList(array) {
@@ -179,16 +208,29 @@ function createList(array) {
 
     for (const item of array) {
         const liElement = document.createElement("li");
+        const img = document.createElement("img");
         const parr1 = document.createElement("p");
         const parr2 = document.createElement("p");
+        img.src = item.photoProfile;
         parr1.textContent = item.username;
         parr2.textContent = item.scores;
-        parr1.setAttribute("class", "nameBold");
-        parr2.setAttribute("class", "score");
+        img.setAttribute("class", "ranking__img");
+        parr1.setAttribute("class", "ranking__p--name");
+        parr2.setAttribute("class", "ranking__p--score");
+        liElement.setAttribute("class", "ranking__li--box");
+        liElement.appendChild(img);
         liElement.appendChild(parr1);
         liElement.appendChild(parr2);
         listScore.appendChild(liElement);
     }
+}
+
+// Inser user image profile
+
+function useImgProfile(arr) {
+    const index = Math.floor(Math.random() * 8);
+    const result = `./src/assets/images/${arr[index]}.png`;
+    return result;
 }
 
 export {
@@ -198,5 +240,5 @@ export {
     upLoadRanking,
     timerGame,
     timerReady,
-    validateForm
+    validateForm,
 };
