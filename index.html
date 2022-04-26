@@ -21,10 +21,10 @@
     </header>
     <main class="mainContainer__main">
         <div id="boardGame" class="container">
-            <section id="wireframe1" class="wireframe__section">
+            <section id="wireframe1" class="wireframe__section hide">
                 <h2 class="title__h2--login">LOG IN</h2>
                 <form method="#">
-                    <label class ="form__label--size" for="username">Username</label>
+                    <label class="form__label--size" for="username">Username</label>
                     <input class="form__input--size" type="text" name="username" id="username" />
                     <p id="error_messagge" class="error_messagge">Invalid</p>
                     <button id="startButton" class="form__button--size" type="button">Start</button>
@@ -37,9 +37,15 @@
                 <h2>GET READY...</h2>
                 <div id="downcounter"></div>
             </section>
-            <section id="wireframe4" class="wireframe__section hide">
+            <section id="wireframe4" class="wireframe__section">
+                <div id="boom"></div>
+                <div id="fuse"></div>
+                <img id="sparks" src="https://i.gifer.com/Z9pp.gif" alt="bomb sparks animation">
+                <img id="gameover"
+                    src="https://cdn.weasyl.com/~tokoyami/submissions/1624479/59e26bb8a08663384cc409703949a1baf09de06cfddd4601c5bf96ae2222d1c8/tokoyami-game-over-transparent-f2u.png"
+                    alt="game OVER">
                 <div id="clickElement" class="click-element__div">
-                    <!-- <p>Click Me</p> -->
+                    <p>Click Me</p>
                 </div>
             </section>
             <section id="wireframe5" class="wireframe__section hide">
