@@ -20,7 +20,7 @@ body {
   background: #0F2027; 
   background: -webkit-linear-gradient(to top, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to top, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
@@ -34,7 +34,7 @@ header {
 
 .mainContainer__main {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: row;
   /* justify-content: space-between; */
@@ -51,7 +51,7 @@ header {
   align-items: center;
   width: 70%;
   border: 1px solid white;
-  height: 100%;
+  height: 100vh;
 }
 
 .wireframe__section {
@@ -66,7 +66,7 @@ header {
 }
 
 .ranking{
-  height: 100%;
+  height: 100vh;
   width: 25%;
   background-color: var(--secondary-color);
   display: flex;
@@ -240,7 +240,6 @@ form {
 
 @media (max-width:1000px){
 
-
   .ranking {
     flex-grow: 1;
   }
@@ -249,4 +248,5 @@ form {
     /* flex-grow: 1; */
     width: 100%;
   }
+
 }
