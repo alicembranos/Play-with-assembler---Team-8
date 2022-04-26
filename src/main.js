@@ -1,4 +1,12 @@
-import { showVisibility, movingElement, loadUser , upLoadRanking , timerGame , timerReady , validateForm} from "./functions.js";
+import {
+  showVisibility,
+  movingElement,
+  loadUser,
+  upLoadRanking,
+  timerGame,
+  timerReady,
+  validateForm,
+} from "./functions.js";
 
 const wireFrame1 = document.getElementById("wireframe1");
 const wireFrame2 = document.getElementById("wireframe2");
@@ -24,7 +32,6 @@ var counterClicks = 0;
 
 // Storing user info in objects
 
-
 // let arrayRanking = [
 //     {
 //         username: "Cris",
@@ -44,25 +51,25 @@ var counterClicks = 0;
 
 //localStorage.setItem("ranking", JSON.stringify(arrayRanking));
 
-// upLoadRanking();
+upLoadRanking();
 
 startBtn.addEventListener("click", function () {
-    if (validateForm()) {
-        loadUser(userNameInput.value);
+  if (validateForm()) {
+    loadUser(userNameInput.value);
 
-        showVisibility(wireFrame1, wireFrame2);
-    }
+    showVisibility(wireFrame1, wireFrame2);
+  }
 });
 
 start.addEventListener("click", function () {
-    showVisibility(wireFrame2, wireFrame3);
-    timerReady();
+  showVisibility(wireFrame2, wireFrame3);
+  timerReady();
 });
 
 playAgain.addEventListener("click", function () {
-    showVisibility(wireFrame5, wireFrame3);
-    counterClicks = 0;
-    timerReady();
+  showVisibility(wireFrame5, wireFrame3);
+  counterClicks = 0;
+  timerReady();
 });
 
 /****** Functions for Wireframe 4 (Game) *******/
@@ -72,4 +79,4 @@ clickElement.addEventListener("click", function () {
     movingElement();
 });
 
-export {wireFrame3, wireFrame4,wireFrame5, counterClicks};
+export { wireFrame3, wireFrame4, wireFrame5, counterClicks };
