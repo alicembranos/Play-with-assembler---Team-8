@@ -21,8 +21,6 @@ const start = document.getElementById("startGameButton");
 const playAgain = document.getElementById("playAgainButton");
 
 const userNameInput = document.getElementById("username");
-
-// const boardGame = document.getElementById("boardGame");
 const clickElement = document.getElementById("clickElement");
 
 const listScore = document.getElementById("listScore");

@@ -223,7 +223,6 @@ function stopGame() {
         if (compareScores(counterClicks, currentUser.scores)) {
             currentUser.scores = counterClicks;
         }
-
         loadFinalScore(currentUser.username, counterClicks, currentUser.scores);
     }
 
