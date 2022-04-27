@@ -6,6 +6,8 @@ import {
   clickElement,
 } from "./main.js";
 
+const errorMessage = document.getElementById("error_messagge");
+
 let arrayRanking = [];
 const userNameInput = document.getElementById("username");
 let interval;
@@ -105,7 +107,6 @@ function loadUser(userName, scores = "current playing") {
 }
 
 function upLoadRanking() {
-  console.log(localStorage.getItem("ranking"));
   if (localStorage.getItem("ranking") !== null) {
     arrayRanking = JSON.parse(localStorage.getItem("ranking"));
     createList(arrayRanking);
@@ -130,24 +131,32 @@ function validateForm() {
 }
 
 /* Load final score in wireframe 5 */
-function loadFinalScore(username, score) {
+function loadFinalScore(username, score, bestScore) {
   const p1 = document.querySelector(".finalGameUser__p");
-  const p2 = document.querySelector(".finalGameScore__p");
+  const p2 = document.querySelectorAll(".finalGameScore__p");
 
   if (p1) {
     p1.remove();
-    p2.remove();
+    p2[0].remove();
+    p2[1].remove();
   }
 
   const gameOver = document.getElementById("gameOver");
   const parr1 = document.createElement("p");
   const parr2 = document.createElement("p");
+  const parr3 = document.createElement("p");
+
   parr1.textContent = `${username} your score is`;
   parr2.textContent = `${score} clicks 🍻`;
+  parr3.textContent = `Best score: ${bestScore}`;
+
   parr1.setAttribute("class", "finalGameUser__p");
   parr2.setAttribute("class", "finalGameScore__p");
+  parr3.setAttribute("class", "finalGameScore__p");
+
   gameOver.appendChild(parr1);
   gameOver.appendChild(parr2);
+  gameOver.appendChild(parr3);
 }
 
 /* Downcounter 3 seconds start game */
@@ -196,11 +205,28 @@ function stopGame() {
   setTimeout(function () {
     showVisibility(wireFrame4, wireFrame5);
   }, 3000);
+
+  // Finding the higher score of the user when it´s not the first that he is playing
   const currentUser = arrayRanking.find(
-    (item) => item.username == user.username
+    (item) =>
+      item.username == user.username && item.scores !== "current playing"
   );
-  currentUser.scores = counterClicks;
-  loadFinalScore(currentUser.username, currentUser.scores);
+
+  // If he/she is the first is playing,
+  if (currentUser === undefined) {
+    const currentUser_2 = arrayRanking.find(
+      (item) => item.username == user.username
+    );
+    currentUser_2.scores = counterClicks;
+    loadFinalScore(currentUser_2.username, counterClicks, counterClicks);
+  } else {
+    if (compareScores(counterClicks, currentUser.scores)) {
+      currentUser.scores = counterClicks;
+    }
+
+    loadFinalScore(currentUser.username, counterClicks, currentUser.scores);
+  }
+
   createList(arrayRanking);
   localStorage.setItem("ranking", JSON.stringify(arrayRanking));
 }
@@ -238,6 +264,9 @@ function useImgProfile(arr) {
   return result;
 }
 
+function compareScores(currNum, lastNum) {
+  return currNum >= lastNum ? true : false;
+}
 export {
   showVisibility,
   movingElement,
