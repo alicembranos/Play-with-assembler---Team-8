@@ -32,16 +32,15 @@ The most important aspects and methods used in the developing process:
 ###### Steps organization
 <img src ="./src/assets/images/Whiteboard.png">
 
-### Images of responsive Devices
+### Images of PC
 
--PC design:
 <img src ="./src/assets/images/pc10seconds.png">
 
--Iphone design:
+### Images of IPHONE
 <img src ="./src/assets/images/iphone.png">
 <img src ="./src/assets/images/iphone1.png">
 
--Ipad design:
+### Images of IPAD
 <img src ="./src/assets/images/ipad.png">
 <img src ="./src/assets/images/ipad1.png">
 
