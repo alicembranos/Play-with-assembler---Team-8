@@ -3,7 +3,6 @@ import {
     movingElement,
     loadUser,
     upLoadRanking,
-    timerGame,
     timerReady,
     validateForm,
 } from "./functions.js";
@@ -29,27 +28,6 @@ const downcounter = document.getElementById("downcounter");
 const explosion = document.getElementById("audioBomb");
 
 var counterClicks = 0;
-
-// Storing user info in objects
-
-// let arrayRanking = [
-//     {
-//         username: "Cris",
-//         scores: 6,
-//     },
-//     {
-//         username: "Carlos",
-//         scores: 9,
-//     },
-//     {
-//         username: "Alicia",
-//         scores: 1,
-//     },
-// ];
-
-//let arrayRanking = [];
-
-//localStorage.setItem("ranking", JSON.stringify(arrayRanking));
 
 upLoadRanking();
 
