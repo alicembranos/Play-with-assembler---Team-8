@@ -2,9 +2,9 @@
 
 ## Contributors
 
-<a href="https://github.com/alicembranos">Alicia Cembranos</a>
-<a href="https://github.com/jose-cuevas">José Cuevas</a>
-<a href="https://github.com/JcarlosCabello1991">Juan Carlos Cabello</a>
+<a href="https://github.com/alicembranos">Alicia Cembranos</a><br>
+<a href="https://github.com/jose-cuevas">José Cuevas</a><br>
+<a href="https://github.com/JcarlosCabello1991">Juan Carlos Cabello</a><br>
 
 # Ten Seconds Game
 The game of ten seconds, consists of the player being able to make the greatest number of clicks in 10 seconds, on an element that is resized and moved around the screen.
