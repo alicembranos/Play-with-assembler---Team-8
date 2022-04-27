@@ -46,5 +46,5 @@ The most important aspects and methods used in the developing process:
 
 ### Video Demo
 
-[[!Alt text[Demo]](https://www.youtube.com/watch?v=abDgI4zEflk)
+Ir a DEMO (https://www.youtube.com/watch?v=abDgI4zEflk)
 
