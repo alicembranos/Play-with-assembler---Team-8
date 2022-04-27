@@ -1,0 +1,67 @@
+@media (max-width: 1200px) {
+    .ranking__img {
+      width: 3rem;
+    }
+  
+    .ranking__p--name {
+      font-size: 1rem;
+    }
+  
+    .ranking__p--score {
+      font-size: 1.2rem;
+    }
+  }
+  
+  @media (max-width: 1000px) {
+    .ranking {
+      flex-grow: 1;
+    }
+  
+    .container {
+      /* flex-grow: 1; */
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .header__h1 {
+      font-size: 1.5rem;
+      text-align: center;
+    }
+  
+    .bombHeader__img {
+      display: none;
+    }
+  
+    .mainContainer__main {
+      padding: 1.5rem;
+    }
+  
+    .container__form {
+      width: 275px;
+    }
+  
+    .title__h2--login {
+      font-size: 2rem;
+    }
+  
+    .form__label--size {
+      font-size: 1rem;
+    }
+  
+    .form__input--size {
+      font-size: 2rem;
+    }
+  
+    .error_messagge {
+      margin-top: -1rem;
+    }
+  
+    .form__button--size {
+      font-size: 2rem;
+    }
+  
+    .ranking {
+      height: 250px;
+    }
+  }
