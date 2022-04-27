@@ -46,5 +46,5 @@ The most important aspects and methods used in the developing process:
 
 ### Video Demo
 
-<video src=".src/assets/audio/demo.mp4">
+<video src=".src/assets/audio/demo.mp4" width="600px" height = "340px">
 
