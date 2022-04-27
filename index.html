@@ -1,32 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!--<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>-->
     <link rel="stylesheet" href="./src/style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
-    <title>Document</title>
-  </head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <title>10 seconds click</title>
+</head>
 
-  <body>
+<body>
     <header>
-      <img
-        src="./src/assets/images/bomb_header.png"
-        alt=""
-        class="bombHeader__img"
-      />
-      <h1 class="header__h1">
-        <i class="fa-solid fa-bomb fa-1x"></i
-        ><span class="header__h1-number10">10</span> SECONDS CLICK
-      </h1>
-      <nav>
-        <i class="fa-solid fa-circle-info fa-2x"></i>
-      </nav>
+        <img src="./src/assets/images/bomb_header.png" alt="" class="bombHeader__img" />
+        <h1 class="header__h1">
+            <i class="fa-solid fa-bomb fa-1x"></i><span class="header__h1-number10">10</span> SECONDS CLICK
+        </h1>
+        <nav>
+            <i class="fa-solid fa-circle-info fa-2x"></i>
+        </nav>
     </header>
     <main class="mainContainer__main">
       <div id="boardGame" class="container">
@@ -189,8 +181,16 @@
             </li> -->
           </ul>
         </div>
-      </aside>
+
+        <aside id="ranking" class="ranking">
+            <h3 class="ranking__h3">RANKING</h3>
+            <div id="scoreRanking" class="ranking__div--scroll">
+                <ul id="listScore" class="ranking__ul">
+                </ul>
+            </div>
+        </aside>
     </main>
     <script src="./src/main.js" type="module"></script>
-  </body>
+</body>
+
 </html>

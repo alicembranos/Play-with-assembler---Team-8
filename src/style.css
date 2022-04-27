@@ -1,6 +1,5 @@
 @import url(./normalize.css);
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-
 @import url("https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap");
 
 :root {
@@ -8,6 +7,7 @@
   --primary-color: #7a7a7a;
   --secondary-color: #5a7c85;
   --light-color: #f4f4f4;
+  --duration: 13s;
 }
 
 * {
@@ -47,9 +47,11 @@ header {
   0% {
     transform: scale(0);
   }
+
   50% {
     transform: scale(1);
   }
+
   100% {
     transform: scale(0);
   }
@@ -69,9 +71,11 @@ header {
   0% {
     color: (var--secondary-color);
   }
+
   50% {
     color: yellow;
   }
+
   100% {
     color: (var--secondary-color);
   }
@@ -238,6 +242,182 @@ form {
   color: var(--light-color);
 }
 
+/* Wireframe2 */
+.wireframe__section:nth-child(4) {
+  animation-name: body;
+  animation-duration: var(--duration);
+  animation-iteration-count: 1;
+}
+
+#boom {
+  position: absolute;
+  border-radius: 50%;
+  background-color: #404040;
+  width: 20vh;
+  height: 20vh;
+  margin-top: 40vh;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  animation-name: boom;
+  animation-duration: var(--duration);
+  animation-iteration-count: 1;
+}
+
+#fuse {
+  position: absolute;
+  background-color: whitesmoke;
+  height: 10vh;
+  width: 1vh;
+  border-radius: 25%;
+  margin-top: 32vh;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  animation-name: fuse;
+  animation-duration: var(--duration);
+  animation-iteration-count: 1;
+}
+
+#sparks {
+  position: absolute;
+  height: 20vh;
+  margin-top: 20vh;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  animation-name: sparks;
+  animation-duration: var(--duration);
+  animation-iteration-count: 1;
+}
+
+#gameover {
+  position: absolute;
+  width: 45vw;
+  margin-top: 20vh;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  animation-name: gameover;
+  animation-duration: var(--duration);
+  animation-iteration-count: 1;
+}
+
+/* ANIMATIONS */
+
+@keyframes sparks {
+  0% {
+    margin-top: 20vh;
+  }
+
+  50% {
+    margin-top: 32vh;
+    opacity: 1;
+  }
+
+  51% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes boom {
+  50% {
+    width: 20vh;
+    height: 20vh;
+  }
+
+  60% {
+    width: 18vh;
+    height: 18vh;
+    margin-top: 40vh;
+  }
+
+  63% {
+    margin-top: 44vh;
+  }
+
+  66% {
+    margin-top: 40vh;
+  }
+
+  69% {
+    margin-top: 45vh;
+  }
+
+  73% {
+    margin-top: 40vh;
+  }
+
+  76% {
+    margin-top: 44vh;
+  }
+
+  79% {
+    margin-top: 40vh;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fuse {
+  0% {
+    height: 10vh;
+    margin-top: 32vh;
+  }
+
+  50% {
+    height: 1vh;
+    margin-top: 42vh;
+    opacity: 1;
+  }
+
+  51% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes body {
+  65% {
+    background-color: black;
+  }
+
+  100% {
+    background-color: #432920;
+  }
+}
+
+@keyframes gameover {
+  80% {
+    opacity: 0;
+    width: 45vw;
+  }
+
+  100% {
+    opacity: 1;
+    width: 65vw;
+  }
+}
+
+/*****************************************************/
 /* Wireframe 3 */
 .ready___h2--scale {
   margin-bottom: 6rem;
@@ -255,9 +435,11 @@ form {
   0% {
     transform: scale(0);
   }
+
   50% {
     transform: scale(7);
   }
+
   100% {
     transform: scale(0);
   }
@@ -303,9 +485,11 @@ form {
   0% {
     transform: scale(1);
   }
+
   50% {
     transform: scale(1.3);
   }
+
   100% {
     transform: scale(1);
   }

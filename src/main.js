@@ -1,11 +1,11 @@
 import {
-  showVisibility,
-  movingElement,
-  loadUser,
-  upLoadRanking,
-  timerGame,
-  timerReady,
-  validateForm,
+    showVisibility,
+    movingElement,
+    loadUser,
+    upLoadRanking,
+    timerGame,
+    timerReady,
+    validateForm,
 } from "./functions.js";
 
 const wireFrame1 = document.getElementById("wireframe1");
@@ -53,30 +53,39 @@ var counterClicks = 0;
 
 upLoadRanking();
 
+/****** Wireframe 1 (Username Login) *******/
 startBtn.addEventListener("click", function () {
-  if (validateForm()) {
-    loadUser(userNameInput.value);
-
-    showVisibility(wireFrame1, wireFrame2);
-  }
+    if (validateForm()) {
+        loadUser(userNameInput.value);
+        showVisibility(wireFrame1, wireFrame2);
+    }
 });
 
+/****** Wireframe 2 (Start Game) *******/
 start.addEventListener("click", function () {
-  showVisibility(wireFrame2, wireFrame3);
-  timerReady();
+    showVisibility(wireFrame2, wireFrame3);
+    timerReady();
 });
 
-playAgain.addEventListener("click", function () {
-  showVisibility(wireFrame5, wireFrame3);
-  counterClicks = 0;
-  timerReady();
-});
-
-/****** Functions for Wireframe 4 (Game) *******/
+/****** Wireframe 4 (Game) *******/
 clickElement.addEventListener("click", function () {
     audioBomb.play();
     counterClicks++;
     movingElement();
 });
 
-export { wireFrame3, wireFrame4, wireFrame5, counterClicks };
+/****** Wireframe 5 (Play Again) *******/
+playAgain.addEventListener("click", function () {
+    showVisibility(wireFrame5, wireFrame3);
+    counterClicks = 0;
+    clickElement.classList.remove("hide");
+    timerReady();
+});
+
+export {
+    wireFrame3,
+    wireFrame4,
+    wireFrame5,
+    counterClicks,
+    clickElement
+};
