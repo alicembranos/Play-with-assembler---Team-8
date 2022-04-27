@@ -57,24 +57,7 @@ function movingElement() {
 
 /* Resize element randomly depending on viewport size*/
 function resizeElement() {
-    const viewPortY = window.innerHeight;
     const viewPortX = window.innerWidth;
-
-    // 320 px— 480 px: Mobile devices
-    // 481 px— 768 px: iPads, Tablets
-    // 769 px— 1024 px: Small screens, laptops
-    // 1025 px— 1200 px: Desktops, large screens
-
-    // Play Game Limits for resizing
-    //Mobiles:
-    // h:50px w:50px Min
-    // h:100px w:100px Max
-    // Tablets:
-    // h:100px w:100px Min
-    // h:200px w:200px Max
-    // Standard Screens:
-    // h:100px w:100px Max
-    // h:300px w:300px Max
 
     switch (true) {
         case viewPortX <= 480:
@@ -171,7 +154,6 @@ function loadFinalScore(username, score) {
 /* Downcounter 3 seconds start game */
 function timerReady() {
     interval = setInterval(function () {
-        //show countdown
         downcounter.textContent = timeToStart - 1;
         timeToStart--;
         if (timeToStart == 0) {
@@ -195,7 +177,6 @@ function stopReady() {
 function timerGame() {
     let timeToEnd = 10;
     intervalGame = setInterval(function () {
-        //show countdown
         console.log(timeToEnd);
         clip.play();
         clip.volume = 0.5;
@@ -213,14 +194,11 @@ function stopGame() {
         clearInterval(intervalGame, 1000);
     }, 5);
     clickElement.classList.add("hide");
-    setTimeout(function() {
+    setTimeout(function () {
         showVisibility(wireFrame4, wireFrame5);
-    },3000)
-    //Find the current user in the ranking
+    }, 3000)
     const currentUser = arrayRanking.find(item => item.username == user.username);
     currentUser.scores = counterClicks;
-    // arrayRanking[0].scores = counterClicks;
-    // loadFinalScore(arrayRanking[0].username, arrayRanking[0].scores);
     loadFinalScore(currentUser.username, currentUser.scores);
     createList(arrayRanking);
     localStorage.setItem("ranking", JSON.stringify(arrayRanking));
@@ -264,7 +242,6 @@ export {
     movingElement,
     loadUser,
     upLoadRanking,
-    timerGame,
     timerReady,
     validateForm,
 };
