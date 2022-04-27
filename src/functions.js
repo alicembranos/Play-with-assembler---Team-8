@@ -213,9 +213,9 @@ function stopGame() {
         clearInterval(intervalGame, 1000);
     }, 5);
     clickElement.classList.add("hide");
-    setTimeout(function() {
+    setTimeout(function () {
         showVisibility(wireFrame4, wireFrame5);
-    },3000)
+    }, 3000)
     //Find the current user in the ranking
     const currentUser = arrayRanking.find(item => item.username == user.username);
     currentUser.scores = counterClicks;
