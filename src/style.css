@@ -1,6 +1,5 @@
 @import url(./normalize.css);
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-
 @import url("https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap");
 
 :root {
@@ -8,7 +7,7 @@
   --primary-color: #7a7a7a;
   --secondary-color: #5a7c85;
   --light-color: #f4f4f4;
-  --duration: 15s;
+  --duration: 13s;
 }
 
 * {
@@ -247,7 +246,7 @@ form {
 .wireframe__section:nth-child(4) {
   animation-name: body;
   animation-duration: var(--duration);
-  animation-iteration-count: infinite;
+  animation-iteration-count: 1;
 }
 
 #boom {
@@ -263,7 +262,7 @@ form {
   right: 0;
   animation-name: boom;
   animation-duration: var(--duration);
-  animation-iteration-count: infinite;
+  animation-iteration-count: 1;
 }
 
 #fuse {
@@ -279,7 +278,7 @@ form {
   right: 0;
   animation-name: fuse;
   animation-duration: var(--duration);
-  animation-iteration-count: infinite;
+  animation-iteration-count: 1;
 }
 
 #sparks {
@@ -292,7 +291,7 @@ form {
   right: 0;
   animation-name: sparks;
   animation-duration: var(--duration);
-  animation-iteration-count: infinite;
+  animation-iteration-count: 1;
 }
 
 #gameover {
@@ -306,7 +305,7 @@ form {
   opacity: 0;
   animation-name: gameover;
   animation-duration: var(--duration);
-  animation-iteration-count: infinite;
+  animation-iteration-count: 1;
 }
 
 /* ANIMATIONS */
@@ -315,13 +314,16 @@ form {
   0% {
     margin-top: 20vh;
   }
+
   50% {
     margin-top: 32vh;
     opacity: 1;
   }
+
   51% {
     opacity: 0;
   }
+
   100% {
     opacity: 0;
   }
@@ -332,32 +334,41 @@ form {
     width: 20vh;
     height: 20vh;
   }
+
   60% {
     width: 18vh;
     height: 18vh;
     margin-top: 40vh;
   }
+
   63% {
     margin-top: 44vh;
   }
+
   66% {
     margin-top: 40vh;
   }
+
   69% {
     margin-top: 45vh;
   }
+
   73% {
     margin-top: 40vh;
   }
+
   76% {
     margin-top: 44vh;
   }
+
   79% {
     margin-top: 40vh;
   }
+
   90% {
     opacity: 1;
   }
+
   100% {
     opacity: 0;
   }
@@ -368,14 +379,17 @@ form {
     height: 10vh;
     margin-top: 32vh;
   }
+
   50% {
     height: 1vh;
     margin-top: 42vh;
     opacity: 1;
   }
+
   51% {
     opacity: 0;
   }
+
   100% {
     opacity: 0;
   }
@@ -385,17 +399,18 @@ form {
   65% {
     background-color: black;
   }
+
   100% {
-    background-color: #432920
-    ;
+    background-color: #432920;
   }
 }
 
 @keyframes gameover {
-  85% {
+  80% {
     opacity: 0;
     width: 45vw;
   }
+
   100% {
     opacity: 1;
     width: 65vw;

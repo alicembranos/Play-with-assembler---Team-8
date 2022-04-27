@@ -2,8 +2,10 @@ import {
     wireFrame3,
     wireFrame4,
     wireFrame5,
-    counterClicks
+    counterClicks,
+    clickElement
 } from "./main.js";
+
 let arrayRanking = [];
 const userNameInput = document.getElementById("username");
 let interval;
@@ -28,11 +30,13 @@ let user = {
     photoProfile: "",
 };
 
+/* Toggle between hide and show mode */
 function showVisibility(current, next) {
     current.classList.toggle("hide");
     next.classList.toggle("hide");
 }
 
+/* Moving element randomly */
 function movingElement() {
     resizeElement();
     //Get the elements parent size
@@ -50,6 +54,7 @@ function movingElement() {
     clickElement.style.transform = `translate(${randX}px, ${randY}px)`;
 }
 
+/* Resize element randomly depending on viewport size*/
 function resizeElement() {
     const viewPortY = window.innerHeight;
     const viewPortX = window.innerWidth;
@@ -100,8 +105,7 @@ function getRandomSize(min, max) {
     return rand;
 }
 
-/********************************************************************* */
-// FUNCTIONS
+/* Load user in wireframe 1 */
 function loadUser(userName, scores = "current playing") {
     //
     user.username = userName;
@@ -141,6 +145,7 @@ function validateForm() {
     return true;
 }
 
+/* Load final score in wireframe 5 */
 function loadFinalScore(username, score) {
     const p1 = document.querySelector(".finalGameUser__p");
     const p2 = document.querySelector(".finalGameScore__p");
@@ -149,7 +154,7 @@ function loadFinalScore(username, score) {
         p1.remove();
         p2.remove();
     }
-    
+
     const gameOver = document.getElementById("gameOver");
     const parr1 = document.createElement("p");
     const parr2 = document.createElement("p");
@@ -159,14 +164,14 @@ function loadFinalScore(username, score) {
     parr2.setAttribute("class", "finalGameScore__p");
     gameOver.appendChild(parr1);
     gameOver.appendChild(parr2);
+
 }
 
-//Timer of step three
+/* Downcounter 3 seconds start game */
 function timerReady() {
     interval = setInterval(function () {
         //show countdown
         downcounter.textContent = timeToStart - 1;
-        console.log(downcounter.textContent);
         timeToStart--;
         if (timeToStart == 0) {
             stopReady();
@@ -175,6 +180,7 @@ function timerReady() {
     }, 1000);
 }
 
+/* Stop Downcounter 3 seconds start game */
 function stopReady() {
     setTimeout(function () {
         clearInterval(interval, 1000);
@@ -184,11 +190,10 @@ function stopReady() {
     timerGame();
 }
 
-//Timer of GAME
+/* Downcounter 10 seconds play game time*/
 function timerGame() {
     let timeToEnd = 10;
     intervalGame = setInterval(function () {
-        //show countdown
         console.log(timeToEnd);
         timeToEnd--;
         if (timeToEnd == 0) {
@@ -197,15 +202,23 @@ function timerGame() {
     }, 1000);
 }
 
+/* Stop Downcounter 10 seconds play game time*/
 function stopGame() {
     setTimeout(function () {
         clearInterval(intervalGame, 1000);
-    }, 3000);
-    showVisibility(wireFrame4, wireFrame5);
-    arrayRanking[0].scores = counterClicks;
+    }, 5);
+    clickElement.classList.add("hide");
+    setTimeout(function() {
+        showVisibility(wireFrame4, wireFrame5);
+    },3000)
+    //Find the current user in the ranking
+    const currentUser = arrayRanking.find(item => item.username == user.username);
+    currentUser.scores = counterClicks;
+    // arrayRanking[0].scores = counterClicks;
+    // loadFinalScore(arrayRanking[0].username, arrayRanking[0].scores);
+    loadFinalScore(currentUser.username, currentUser.scores);
     createList(arrayRanking);
     localStorage.setItem("ranking", JSON.stringify(arrayRanking));
-    loadFinalScore(arrayRanking[0].username, arrayRanking[0].scores);
 }
 
 function createList(array) {
@@ -235,7 +248,6 @@ function createList(array) {
 }
 
 // Inser user image profile
-
 function useImgProfile(arr) {
     const index = Math.floor(Math.random() * 8);
     const result = `./src/assets/images/${arr[index]}.png`;
