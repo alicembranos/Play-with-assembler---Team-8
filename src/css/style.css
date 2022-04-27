@@ -21,15 +21,16 @@
 
 body {
   /* fallback for old browsers */
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+
   background: #0f2027;
   background: -webkit-linear-gradient(to top, #2c5364, #203a43, #0f2027);
   /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to top, #2c5364, #203a43, #0f2027);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  overflow-y: scroll;
 }
 
 header {
@@ -56,8 +57,6 @@ header {
 }
 
 .mainContainer__main {
-  width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: row;
   /* justify-content: space-between; */
@@ -65,6 +64,9 @@ header {
   flex-wrap: wrap;
   align-items: center;
   /* padding: 5rem; */
+
+  width: 100%;
+  height: 100%;
   padding: 5vh;
 }
 
@@ -78,32 +80,36 @@ header {
 }
 
 .wireframe__section {
-  display: flex;
-  width: 100%;
-  height: 90vh;
   position: relative;
-  background-color: var(--secondary-color);
+  display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  width: 100%;
+  height: 90vh;
+  background-color: var(--secondary-color);
   border-radius: 1rem;
 }
 
 .ranking {
+  display: flex;
+  flex-direction: column;
+
   height: 90vh;
   width: 25%;
   background-color: var(--secondary-color);
-  display: flex;
-  flex-direction: column;
+
   border-radius: 1rem;
 }
 
 .ranking__h3 {
   text-align: center;
   border-bottom: 3px solid;
+
+  font-size: 1.5rem;
   line-height: 3rem;
   margin: 1rem 1rem;
-  font-size: 1.5rem;
 }
 
 .ranking__div--scroll {
@@ -311,8 +317,8 @@ form {
   cursor: pointer;
 }
 
-.audio_style{
-  display:none;
+.audio_style {
+  display: none;
 }
 
 .finalGameUser__p {
