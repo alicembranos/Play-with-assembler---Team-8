@@ -13,21 +13,21 @@ The game of ten seconds, consists of the player being able to make the greatest 
 HTML5, CSS, JAVASCRIPT, JSON, GIT, BEM, SMACSS.
 
 ###### Steps for developing this project
-Design of the HTML file.
-Development the logical of the game.
-Finally, finnish with the definition of the CSS.
-The most important aspects and methods used in the developing process:
--Create an initial dashboard to develop the project.
--Another  important point to mention is keeping the peer coding all over the developing process.
--Using the localStorage to storage data
--Array.sort() method to order all the elements of an array
--Array.find() method to find  the first element of an array which satisfies a test function
--Using css variables
--Improve the use of css animations
--Implement the BEM and SMACCS in the project
--Use the import and export in js files.
--Use the “.clientWidth” and “.clientHeight” to obtain the width and height of the element.
--Organising CSS properties properly
+Design of the HTML file.<br>
+Development the logical of the game.<br>
+Finally, finnish with the definition of the CSS.<br>
+The most important aspects and methods used in the developing process:<br>
+-Create an initial dashboard to develop the project.<br>
+-Another  important point to mention is keeping the peer coding all over the developing process.<br>
+-Using the localStorage to storage data<br>
+-Array.sort() method to order all the elements of an array<br>
+-Array.find() method to find  the first element of an array which satisfies a test function<br>
+-Using css variables<br>
+-Improve the use of css animations<br>
+-Implement the BEM and SMACCS in the project<br>
+-Use the import and export in js files.<br>
+-Use the “.clientWidth” and “.clientHeight” to obtain the width and height of the element.<br>
+-Organising CSS properties properly<br>
 
 ###### Steps organization
 <img src ="./src/assets/images/Whiteboard.png">
