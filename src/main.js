@@ -1,11 +1,14 @@
 import {
-    showVisibility,
-    movingElement,
-    loadUser,
-    upLoadRanking,
-    timerReady,
-    validateForm,
+  showVisibility,
+  movingElement,
+  loadUser,
+  upLoadRanking,
+  timerReady,
+  validateForm,
 } from "./functions.js";
+
+const iconGameInstructions = document.getElementById("iconGameInstructions");
+const gameInstructions = document.getElementById("gameInstructions");
 
 const wireFrame1 = document.getElementById("wireframe1");
 const wireFrame2 = document.getElementById("wireframe2");
@@ -29,41 +32,51 @@ const explosion = document.getElementById("audioBomb");
 
 var counterClicks = 0;
 
+iconGameInstructions.addEventListener("mouseover", function () {
+  gameInstructions.textContent = `
+This game consists in measuring 
+the number of clicks you can 
+make in a 10 second period. 
+Enjoy it!`;
+
+  gameInstructions.classList.remove("hide");
+});
+
+iconGameInstructions.addEventListener("mouseout", function () {
+  gameInstructions.textContent = ``;
+
+  gameInstructions.classList.add("hide");
+});
+
 upLoadRanking();
 
 /****** Wireframe 1 (Username Login) *******/
 startBtn.addEventListener("click", function () {
-    if (validateForm()) {
-        loadUser(userNameInput.value);
-        showVisibility(wireFrame1, wireFrame2);
-    }
+  if (validateForm()) {
+    loadUser(userNameInput.value);
+    showVisibility(wireFrame1, wireFrame2);
+  }
 });
 
 /****** Wireframe 2 (Start Game) *******/
 start.addEventListener("click", function () {
-    showVisibility(wireFrame2, wireFrame3);
-    timerReady();
+  showVisibility(wireFrame2, wireFrame3);
+  timerReady();
 });
 
 /****** Wireframe 4 (Game) *******/
 clickElement.addEventListener("click", function () {
-    audioBomb.play();
-    counterClicks++;
-    movingElement();
+  audioBomb.play();
+  counterClicks++;
+  movingElement();
 });
 
 /****** Wireframe 5 (Play Again) *******/
 playAgain.addEventListener("click", function () {
-    showVisibility(wireFrame5, wireFrame3);
-    counterClicks = 0;
-    clickElement.classList.remove("hide");
-    timerReady();
+  showVisibility(wireFrame5, wireFrame3);
+  counterClicks = 0;
+  clickElement.classList.remove("hide");
+  timerReady();
 });
 
-export {
-    wireFrame3,
-    wireFrame4,
-    wireFrame5,
-    counterClicks,
-    clickElement
-};
+export { wireFrame3, wireFrame4, wireFrame5, counterClicks, clickElement };
