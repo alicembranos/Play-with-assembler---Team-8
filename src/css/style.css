@@ -53,6 +53,29 @@ header {
   animation: 1s number10 infinite;
 }
 
+.tootltip-item__div--display {
+  position: relative;
+}
+.game-instructions__i {
+  cursor: pointer;
+}
+
+.game-instructions__i:hover {
+  color: yellow;
+}
+
+.game-instructions__p {
+  position: absolute;
+  right: 0;
+  z-index: 1;
+  line-height: 1.5rem;
+  background-color: var(--light-color);
+  color: var(--secondary-color);
+  padding: 1rem;
+  border-radius: 5px;
+  width: 200px;
+}
+
 .mainContainer__main {
   display: flex;
   flex-direction: row;
