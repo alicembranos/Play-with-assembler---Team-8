@@ -72,7 +72,6 @@ clickElement.addEventListener("click", function () {
 playAgain.addEventListener("click", function () {
     showVisibility(wireFrame5, wireFrame3);
     counterClicks = 0;
-    window.currentPlayer = true; //variable to display de ranking with the actual current player
     clickElement.classList.remove("hide");
     timerReady();
 });

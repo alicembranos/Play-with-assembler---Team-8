@@ -14,8 +14,6 @@ let interval;
 let intervalGame;
 let timeToStart = 4;
 const clip = document.getElementById("audio");
-window.currentPlayer = false;
-// let currentPlayer = false;
 
 const arrayUserImage = [
     "bear",
@@ -121,7 +119,9 @@ function finalStorageScore(score) {
 }
 
 function validateForm() {
+
     const regex = /^[^\s]+$/;
+
     if (userNameInput.value === "" || userNameInput.value === Number) {
         errorMessage.textContent = "Please insert a name";
         return false;
@@ -132,10 +132,14 @@ function validateForm() {
         errorMessage.textContent = `${userNameInput.value} is already used, please enter another one`;
         return false;
     }
+
     return true;
+
 }
 
-function existValue (array, name) {
+
+
+function existValue(array, name) {
     for (const item of array) {
         if (item.username == name) {
             return true;
@@ -175,8 +179,6 @@ function loadFinalScore(username, score, bestScore) {
 
 /* Downcounter 3 seconds start game */
 function timerReady() {
-    createList(arrayRanking); //Display the ranking with the actual current player
-    currentPlayer = false;
     interval = setInterval(function () {
         downcounter.textContent = timeToStart - 1;
         timeToStart--;
@@ -241,7 +243,6 @@ function stopGame() {
         }
         loadFinalScore(currentUser.username, counterClicks, currentUser.scores);
     }
-
     createList(arrayRanking);
     localStorage.setItem("ranking", JSON.stringify(arrayRanking));
 }
@@ -252,7 +253,7 @@ function createList(array) {
     });
 
     listScore.textContent = "";
-    let i = 0;
+
     for (const item of array) {
         const liElement = document.createElement("li");
         const img = document.createElement("img");
@@ -260,11 +261,7 @@ function createList(array) {
         const parr2 = document.createElement("p");
         img.src = item.photoProfile;
         parr1.textContent = item.username;
-        if ( i==0 && window.currentPlayer) {
-            parr2.textContent = "current playing";
-        } else {
-            parr2.textContent = item.scores;
-        }
+        parr2.textContent = item.scores;
         img.setAttribute("class", "ranking__img");
         parr1.setAttribute("class", "ranking__p--name");
         parr2.setAttribute("class", "ranking__p--score");
@@ -273,7 +270,6 @@ function createList(array) {
         liElement.appendChild(parr1);
         liElement.appendChild(parr2);
         listScore.appendChild(liElement);
-        i++;
     }
 }
 
@@ -287,6 +283,7 @@ function useImgProfile(arr) {
 function compareScores(currNum, lastNum) {
     return currNum >= lastNum ? true : false;
 }
+
 export {
     showVisibility,
     movingElement,
