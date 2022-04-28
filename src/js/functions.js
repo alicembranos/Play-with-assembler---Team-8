@@ -137,8 +137,6 @@ function validateForm() {
 
 }
 
-
-
 function existValue(array, name) {
     for (const item of array) {
         if (item.username == name) {
