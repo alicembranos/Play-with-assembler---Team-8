@@ -119,15 +119,49 @@ function finalStorageScore(score) {
 }
 
 function validateForm() {
+
   const regex = /^[^\s]+$/;
+
   if (userNameInput.value === "" || userNameInput.value === Number) {
-    errorMessage.textContent = "Please insert a name";
-    return false;
+
+      errorMessage.textContent = "Please insert a name";
+
+      return false;
+
   } else if (!regex.test(userNameInput.value)) {
-    errorMessage.textContent = "Please insert a name whitout blank spaces";
-    return false;
+
+      errorMessage.textContent = "Please insert a name whitout blank spaces";
+
+      return false;
+
+  } else if (existValue(arrayRanking, userNameInput.value)) {
+
+      errorMessage.textContent = `${userNameInput.value} is already used, please enter another one`;
+
+      return false;
+
   }
+
   return true;
+
+}
+
+
+
+function existValue(array, name) {
+
+  for (const item of array) {
+
+      if (item.username == name) {
+
+          return true;
+
+      }
+
+  }
+
+  return false;
+
 }
 
 /* Load final score in wireframe 5 */
